@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Server
+server/node_modules
+server/.env
+server/uploads
+
+# Backup & archives
+backups/
+plans/migration-archive/
+*.bak
+
+# Personal / sensitive data files (JANGAN di-upload ke GitHub)
+DEPLOY.md
+DEPLOYMENT.md
+Damar_Portfolio_Master_Data*.md
+PROJECT_SUMMARY.md
+Design.md
+scripts-reference.json
+cleanup.sh
+plans/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Kilo internal tooling (worktrees, local state)
+.kilo/

@@ -1,0 +1,509 @@
+/* ================================================
+   AURORA UI PREMIUM DESIGN SYSTEM v2 - OPTIMIZED
+   ================================================
+   Performance optimizations:
+   - Removed filter: blur() (gradient already fades)
+   - Removed mix-blend-mode (compositing cost)
+   - Removed will-change (no JS animates layers)
+   - Reduced to 3 layers (from 5)
+   ================================================ */
+
+/* ================================================
+   1. AURORA BACKGROUND (VISIBLE & FAST)
+   ================================================ */
+
+.aurora-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Optimized: gradient fades naturally, no blur needed */
+.aurora-layer {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Layer 1: BOLD violet aurora - TOP LEFT */
+.aurora-layer--1 {
+  width: 70vw;
+  height: 70vw;
+  top: -25%;
+  left: -15%;
+  background: radial-gradient(ellipse, 
+    rgba(124, 58, 237, 0.35) 0%, 
+    rgba(139, 92, 246, 0.22) 40%, 
+    rgba(196, 181, 253, 0.1) 70%, 
+    transparent 100%);
+  animation: aurora-drift-1 30s ease-in-out infinite alternate;
+}
+
+/* Layer 2: BOLD cyan aurora - RIGHT SIDE */
+.aurora-layer--2 {
+  width: 60vw;
+  height: 60vw;
+  top: -10%;
+  right: -20%;
+  background: radial-gradient(ellipse, 
+    rgba(6, 182, 212, 0.3) 0%, 
+    rgba(34, 211, 238, 0.18) 40%, 
+    rgba(165, 243, 252, 0.08) 70%, 
+    transparent 100%);
+  animation: aurora-drift-2 35s ease-in-out infinite alternate;
+}
+
+/* Layer 3: BOLD indigo aurora - BOTTOM (reduced size for perf) */
+.aurora-layer--3 {
+  width: 55vw;
+  height: 55vw;
+  bottom: -25%;
+  left: -5%;
+  background: radial-gradient(ellipse, 
+    rgba(79, 70, 229, 0.28) 0%, 
+    rgba(99, 102, 241, 0.16) 40%, 
+    rgba(199, 210, 254, 0.07) 70%, 
+    transparent 100%);
+  animation: aurora-drift-3 40s ease-in-out infinite alternate;
+}
+
+/* Layers 4 & 5 removed for performance (were 80% invisible overlap) */
+
+/* ================================================
+   2. AURORA ANIMATIONS (GPU-friendly: transform only)
+   ================================================ */
+
+@keyframes aurora-drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6vw, 4vh) scale(1.1);
+  }
+  100% {
+    transform: translate(-3vw, 6vh) scale(0.97);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-5vw, 5vh) scale(1.12);
+  }
+  100% {
+    transform: translate(3vw, -2vh) scale(0.95);
+  }
+}
+
+@keyframes aurora-drift-3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(4vw, -4vh) scale(1.08);
+  }
+  100% {
+    transform: translate(-2vw, 2vh) scale(1.05);
+  }
+}
+
+/* ================================================
+   4. GLITTER CURSOR (Canvas-Optimized)
+   ================================================ */
+
+.glitter-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Static cursor glow (CSS only, GPU composited) */
+.cursor-glow-static {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, 
+    rgba(59, 130, 246, 0.08) 0%, 
+    rgba(34, 211, 238, 0.04) 35%, 
+    transparent 65%);
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* Fallback classes (kept for backward compat) */
+.glitter-container { display: none; }
+.glitter-particle { display: none; }
+.cursor-glow { display: none; }
+.cursor-dot-glow { display: none; }
+
+/* ================================================
+   5. PREMIUM BUTTON EFFECTS
+   ================================================ */
+
+.btn-aurora {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-aurora:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-aurora:active {
+  transform: translateY(-1px) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* Animated gradient shine */
+.btn-aurora::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn-aurora:hover::before {
+  left: 100%;
+}
+
+/* Cursor glow following mouse */
+.btn-aurora::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.25),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-aurora:hover::after {
+  opacity: 1;
+}
+
+/* ================================================
+   6. PREMIUM CARD EFFECTS
+   ================================================ */
+
+.card-aurora {
+  position: relative;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.card-aurora:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: 
+    0 30px 60px rgba(31, 38, 135, 0.12),
+    0 8px 20px rgba(31, 38, 135, 0.06),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+/* Aurora spotlight */
+.card-aurora::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.12),
+    rgba(139, 92, 246, 0.06) 30%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-aurora:hover::after {
+  opacity: 1;
+}
+
+/* Card glow border effect */
+.card-aurora::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.3),
+    rgba(139, 92, 246, 0.2),
+    rgba(34, 211, 238, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(4px);
+}
+
+.card-aurora:hover::before {
+  opacity: 1;
+}
+
+/* ================================================
+   7. SCROLL REVEAL (Optimized - No blur filter)
+   ================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
+.reveal--delay-4 { transition-delay: 0.4s; }
+
+/* Stagger animation */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger-item--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ================================================
+   8. PREMIUM NAVBAR
+   ================================================ */
+
+.navbar-aurora {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-aurora--scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    0 12px 40px rgba(31, 38, 135, 0.12),
+    0 2px 8px rgba(31, 38, 135, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ================================================
+   9. PAGE LOAD SEQUENCE
+   ================================================ */
+
+.page-load {
+  animation: page-fade-in 0.8s ease-out;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.load-sequence-item {
+  opacity: 0;
+  animation: load-slide-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes load-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ================================================
+   10. GRADIENT TEXT (Static - No infinite animation)
+   ================================================ */
+
+.text-gradient-aurora {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated version - only on hover, not infinite */
+.text-gradient-animated:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #06b6d4 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift-hover 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift-hover {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.text-gradient-cool {
+  background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================
+   11. SECTION AMBIENT TRANSITIONS
+   ================================================ */
+
+.section-aurora {
+  position: relative;
+}
+
+.section-aurora::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 10%;
+  right: 10%;
+  height: 100px;
+  background: linear-gradient(
+    180deg, 
+    transparent 0%, 
+    rgba(59, 130, 246, 0.04) 30%,
+    rgba(139, 92, 246, 0.03) 60%,
+    transparent 100%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================
+   12. ACCESSIBILITY
+   ================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-layer,
+  .aurora-diagonal::before,
+  .aurora-diagonal::after,
+  .cursor-glow,
+  .cursor-dot-glow,
+  .glitter-particle,
+  .text-gradient-aurora {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .glitter-container {
+    display: none;
+  }
+  
+  .reveal,
+  .stagger-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* ================================================
+   13. RESPONSIVE
+   ================================================ */
+
+@media (max-width: 1024px) {
+  .aurora-layer { filter: blur(50px); }
+  .cursor-glow { width: 350px; height: 350px; }
+  .glitter-particle { display: none; }
+}
+
+@media (max-width: 768px) {
+  .aurora-layer { filter: blur(40px); }
+  .aurora-layer--1 { width: 90vw; height: 90vw; }
+  .aurora-layer--2 { width: 80vw; height: 80vw; }
+  .aurora-layer--3 { width: 85vw; height: 85vw; }
+  .aurora-layer--4 { width: 70vw; height: 70vw; }
+  .aurora-layer--5 { display: none; }
+  
+  .cursor-glow,
+  .cursor-dot-glow,
+  .glitter-particle {
+    display: none;
+  }
+  
+  .card-aurora {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .aurora-diagonal::after {
+    display: none;
+  }
+}

@@ -1,0 +1,109 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-modal-backdrop);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-height: 90vh;
+    background: white;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sizes */
+.modal--sm {
+    max-width: 400px;
+}
+
+.modal--md {
+    max-width: 560px;
+}
+
+.modal--lg {
+    max-width: 800px;
+}
+
+.modal--xl {
+    max-width: 1140px;
+}
+
+.modal--full {
+    max-width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+}
+
+/* Header */
+.modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal__title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-gray-900);
+    margin: 0;
+}
+
+.modal__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: var(--color-gray-100);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.modal__close:hover {
+    background: var(--color-gray-200);
+}
+
+.modal__close svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-gray-600);
+}
+
+/* Body */
+.modal__body {
+    padding: var(--space-6);
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal {
+        max-width: 100%;
+        max-height: 90vh;
+        border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    }
+}

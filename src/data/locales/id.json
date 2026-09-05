@@ -1,0 +1,150 @@
+{
+    "nav": {
+        "home": "Beranda",
+        "projects": "Proyek",
+        "about": "Tentang",
+        "blog": "Blog",
+        "contact": "Kontak",
+        "resume": "Resume",
+        "hireMe": "Hubungi Saya"
+    },
+    "hero": {
+        "greeting": "Terbuka untuk peluang baru",
+        "title": "Halo, Saya",
+        "name": "Damar",
+        "tagline": "Saya membuat",
+        "highlight": "produk digital",
+        "ending": "yang bermakna.",
+        "description": "Full-stack developer yang mengkhususkan diri dalam aplikasi web yang skalabel. Saya mengubah kebutuhan kompleks menjadi solusi yang bersih, intuitif, dan berkinerja tinggi.",
+        "viewProjects": "Lihat Proyek",
+        "downloadResume": "Unduh Resume"
+    },
+    "featured": {
+        "title": "Karya Unggulan",
+        "subtitle": "Proyek terpilih dari 2023-2024",
+        "viewAll": "Semua Proyek",
+        "viewCaseStudy": "Lihat Studi Kasus"
+    },
+    "cta": {
+        "title": "Punya proyek dalam pikiran?",
+        "description": "Saya saat ini tersedia untuk pekerjaan freelance. Jika Anda memiliki proyek yang membutuhkan sentuhan kreatif, saya ingin mendengarnya.",
+        "letsTalk": "Mari Bicara",
+        "copyEmail": "Salin Email"
+    },
+    "projects": {
+        "pageTitle": "Semua Proyek Saya",
+        "pageDescription": "Kumpulan hal-hal yang telah saya bangun, perbaiki, dan kembangkan. Dari skrip sederhana hingga aplikasi web kompleks.",
+        "searchPlaceholder": "Cari proyek...",
+        "filters": {
+            "all": "Semua",
+            "webApps": "Aplikasi Web",
+            "mobile": "Mobile",
+            "openSource": "Open Source",
+            "design": "Desain"
+        },
+        "roles": {
+            "all": "Semua Peran",
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "fullstack": "Fullstack"
+        },
+        "loadMore": "Muat Lebih Banyak",
+        "source": "Kode",
+        "liveDemo": "Demo",
+        "docs": "Dokumentasi",
+        "appStore": "App Store",
+        "preview": "Pratinjau"
+    },
+    "projectDetail": {
+        "backToProjects": "Kembali ke Proyek",
+        "viewLiveDemo": "Lihat Demo",
+        "githubRepo": "Repo GitHub",
+        "copyRepoLink": "Salin Link Repo",
+        "copied": "Tersalin!",
+        "about": "Tentang Proyek",
+        "caseStudy": "Studi Kasus",
+        "problem": "Masalah",
+        "solution": "Solusi",
+        "result": "Hasil",
+        "challenges": "Tantangan yang Dihadapi",
+        "theSolution": "Solusinya",
+        "keyFeatures": "Fitur Utama",
+        "techStack": "Tech Stack",
+        "date": "Tanggal",
+        "duration": "Durasi",
+        "role": "Peran",
+        "status": "Status",
+        "completed": "Selesai",
+        "inProgress": "Dalam Proses",
+        "likeProject": "Suka proyek ini?",
+        "letsWork": "Mari bekerja sama",
+        "previousProject": "Proyek Sebelumnya",
+        "nextProject": "Proyek Selanjutnya"
+    },
+    "about": {
+        "title": "Halo, Saya",
+        "name": "Damar",
+        "tagline": "Saya membuat hal-hal untuk web.",
+        "available": "Tersedia untuk Peran Full-Stack & Arsitektur",
+        "description": "Saya menciptakan pengalaman digital yang modern dan mudah diakses. Dengan latar belakang pengembangan full-stack, saya senang memecahkan masalah kompleks dengan kode yang bersih. Saat tidak sedang debugging, Anda bisa menemukan saya menjelajahi kedai kopi baru atau hiking di trail lokal.",
+        "contactMe": "Hubungi Saya",
+        "viewProjects": "Lihat Proyek",
+        "toolkit": "Toolkit Teknis Saya",
+        "journey": "Perjalanan Saya",
+        "present": "Sekarang",
+        "hobbies": "Saat AFK",
+        "coffee": "Pecinta Kopi",
+        "coffeeDesc": "Menyeduh V60 sempurna",
+        "hiking": "Hiking & Alam",
+        "hikingDesc": "Penjelajah trail akhir pekan",
+        "gaming": "Gaming",
+        "gamingDesc": "Game RPG dan strategi"
+    },
+    "blog": {
+        "pageTitle": "Blog & Catatan",
+        "pageDescription": "Tulisan teknis, tutorial, dan pemikiran tentang pengembangan software.",
+        "searchPlaceholder": "Cari artikel...",
+        "readMore": "Baca Selengkapnya",
+        "minRead": "menit baca",
+        "categories": {
+            "all": "Semua",
+            "tutorials": "Tutorial",
+            "thoughts": "Pemikiran",
+            "tips": "Tips & Trik"
+        }
+    },
+    "footer": {
+        "tagline": "Dibangun dengan kode bersih.",
+        "copyright": "© 2024 Damar. Hak cipta dilindungi.",
+        "startProject": "Mulai proyek"
+    },
+    "common": {
+        "learnMore": "Pelajari lebih lanjut",
+        "seeAll": "Lihat semua",
+        "close": "Tutup",
+        "submit": "Kirim",
+        "cancel": "Batal",
+        "save": "Simpan",
+        "delete": "Hapus",
+        "edit": "Edit",
+        "add": "Tambah",
+        "loading": "Memuat..."
+    },
+    "admin": {
+        "title": "Panel Admin",
+        "addProject": "Tambah Proyek Baru",
+        "addBlog": "Tambah Postingan Blog",
+        "projectTitle": "Judul Proyek",
+        "projectDescription": "Deskripsi",
+        "projectCategory": "Kategori",
+        "projectRole": "Peran",
+        "projectTechStack": "Tech Stack (pisahkan dengan koma)",
+        "projectLiveUrl": "URL Demo",
+        "projectRepoUrl": "URL Repository",
+        "projectImage": "URL Gambar",
+        "analytics": "Dashboard Analytics",
+        "totalClicks": "Total Klik",
+        "demoClicks": "Klik Demo",
+        "repoClicks": "Klik Repo"
+    }
+}

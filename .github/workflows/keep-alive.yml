@@ -1,0 +1,74 @@
+name: Keep Supabase Database Alive
+
+# ================================================
+# SUPABASE KEEP-ALIVE CRON JOB
+# ================================================
+# Purpose: Prevent Supabase free tier database from pausing
+# Supabase pauses inactive databases after 7 days
+# This workflow runs a lightweight query every 3 days
+# ================================================
+
+on:
+  # Schedule: Run every 3 days at midnight UTC
+  schedule:
+    - cron: '0 0 */3 * *'  # Every 3 days at 00:00 UTC
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    name: Ping Database Keep-Alive Endpoint
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Ping keep-alive endpoint
+        run: |
+          echo "Pinging keep-alive endpoint..."
+          RESPONSE=$(curl -s -w "\n%{http_code}" "${{ secrets.API_URL }}/health/keep-alive")
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n-1)
+          
+          echo "HTTP Status: $HTTP_CODE"
+          echo "Response Body: $BODY"
+          
+          if [ "$HTTP_CODE" -eq 200 ]; then
+            echo "✅ Keep-alive successful!"
+          else
+            echo "❌ Keep-alive failed with status $HTTP_CODE"
+            exit 1
+          fi
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "⚠️ Keep-alive check failed!"
+          echo "Please check your Supabase database connection."
+          echo "Check the logs at: https://github.com/${{ github.repository }}/actions"
+
+# ================================================
+# SETUP INSTRUCTIONS
+# ================================================
+# 
+# 1. Add GitHub Secret:
+#    - Go to: Repository Settings > Secrets and Variables > Actions
+#    - Create new secret: API_URL
+#    - Value: https://your-domain.com/api (your production API URL)
+#
+# 2. Verify workflow:
+#    - Go to: Actions tab > Keep Supabase Database Alive
+#    - Click "Run workflow" to test manually
+#
+# 3. Check logs:
+#    - Each run creates a log entry
+#    - Check for successful pings
+#
+# 4. Adjust schedule (optional):
+#    - Every 2 days: '0 0 */2 * *'
+#    - Every 4 days: '0 0 */4 * *'
+#    - Every week: '0 0 * * 0'
+#
+# ================================================

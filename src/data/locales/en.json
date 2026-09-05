@@ -1,0 +1,150 @@
+{
+    "nav": {
+        "home": "Home",
+        "projects": "Projects",
+        "about": "About",
+        "blog": "Blog",
+        "contact": "Contact",
+        "resume": "Resume",
+        "hireMe": "Hire Me"
+    },
+    "hero": {
+        "greeting": "Open to new opportunities",
+        "title": "Hi, I'm",
+        "name": "Damar",
+        "tagline": "I build",
+        "highlight": "digital products",
+        "ending": "that matter.",
+        "description": "Full-stack developer specializing in scalable web apps. I transform complex requirements into clean, intuitive, and performant solutions.",
+        "viewProjects": "View Projects",
+        "downloadResume": "Download Resume"
+    },
+    "featured": {
+        "title": "Featured Work",
+        "subtitle": "Selected projects from 2023-2024",
+        "viewAll": "All Projects",
+        "viewCaseStudy": "View Case Study"
+    },
+    "cta": {
+        "title": "Have a project in mind?",
+        "description": "I'm currently available for freelance work. If you have a project that needs some creative injection, I'd love to hear about it.",
+        "letsTalk": "Let's Talk",
+        "copyEmail": "Copy Email"
+    },
+    "projects": {
+        "pageTitle": "All My Projects",
+        "pageDescription": "A collection of things I've built, broken, and fixed. From simple scripts to complex web applications.",
+        "searchPlaceholder": "Search projects...",
+        "filters": {
+            "all": "All",
+            "webApps": "Web Apps",
+            "mobile": "Mobile",
+            "openSource": "Open Source",
+            "design": "Design"
+        },
+        "roles": {
+            "all": "All Roles",
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "fullstack": "Fullstack"
+        },
+        "loadMore": "Load More Projects",
+        "source": "Source",
+        "liveDemo": "Live Demo",
+        "docs": "Docs",
+        "appStore": "App Store",
+        "preview": "Preview"
+    },
+    "projectDetail": {
+        "backToProjects": "Back to Projects",
+        "viewLiveDemo": "View Live Demo",
+        "githubRepo": "GitHub Repo",
+        "copyRepoLink": "Copy Repo Link",
+        "copied": "Copied!",
+        "about": "About the Project",
+        "caseStudy": "Case Study",
+        "problem": "The Problem",
+        "solution": "The Solution",
+        "result": "The Result",
+        "challenges": "Challenges Faced",
+        "theSolution": "The Solution",
+        "keyFeatures": "Key Features",
+        "techStack": "Tech Stack",
+        "date": "Date",
+        "duration": "Duration",
+        "role": "Role",
+        "status": "Status",
+        "completed": "Completed",
+        "inProgress": "In Progress",
+        "likeProject": "Like this project?",
+        "letsWork": "Let's work together",
+        "previousProject": "Previous Project",
+        "nextProject": "Next Project"
+    },
+    "about": {
+        "title": "Hi, I'm",
+        "name": "Damar",
+        "tagline": "I build things for the web.",
+        "available": "Available for Full-Stack & Architecture Roles",
+        "description": "I create approachable and modern digital experiences. With a background in full-stack development, I love solving complex problems with clean code. When I'm not debugging, you can find me exploring new coffee shops or hiking local trails.",
+        "contactMe": "Contact Me",
+        "viewProjects": "View Projects",
+        "toolkit": "My Technical Toolkit",
+        "journey": "My Journey",
+        "present": "Present",
+        "hobbies": "When I'm AFK",
+        "coffee": "Coffee Enthusiast",
+        "coffeeDesc": "Brewing the perfect V60",
+        "hiking": "Hiking & Nature",
+        "hikingDesc": "Weekend trail explorer",
+        "gaming": "Gaming",
+        "gamingDesc": "RPG and strategy games"
+    },
+    "blog": {
+        "pageTitle": "Blog & Notes",
+        "pageDescription": "Technical writeups, tutorials, and thoughts on software development.",
+        "searchPlaceholder": "Search articles...",
+        "readMore": "Read More",
+        "minRead": "min read",
+        "categories": {
+            "all": "All",
+            "tutorials": "Tutorials",
+            "thoughts": "Thoughts",
+            "tips": "Tips & Tricks"
+        }
+    },
+    "footer": {
+        "tagline": "Built with clean code.",
+        "copyright": "© 2024 Damar. All rights reserved.",
+        "startProject": "Start a project"
+    },
+    "common": {
+        "learnMore": "Learn more",
+        "seeAll": "See all",
+        "close": "Close",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "loading": "Loading..."
+    },
+    "admin": {
+        "title": "Admin Panel",
+        "addProject": "Add New Project",
+        "addBlog": "Add New Blog Post",
+        "projectTitle": "Project Title",
+        "projectDescription": "Description",
+        "projectCategory": "Category",
+        "projectRole": "Role",
+        "projectTechStack": "Tech Stack (comma separated)",
+        "projectLiveUrl": "Live Demo URL",
+        "projectRepoUrl": "Repository URL",
+        "projectImage": "Image URL",
+        "analytics": "Analytics Dashboard",
+        "totalClicks": "Total Clicks",
+        "demoClicks": "Demo Clicks",
+        "repoClicks": "Repo Clicks"
+    }
+}
